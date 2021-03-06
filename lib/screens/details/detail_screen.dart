@@ -16,7 +16,9 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: arguments.product.color,
       appBar: buildAppBar(context),
-      body: DetailBody(),
+      body: DetailBody(
+        product: arguments.product,
+      ),
     );
   }
 }
