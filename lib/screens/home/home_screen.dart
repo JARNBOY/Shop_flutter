@@ -1,9 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shopping_app/constants.dart';
+import 'package:flutter_svg/svg.dart';
+
+import 'component/home_body.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: buildAppBar(),
+      body: HomeBody(),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      leading: IconButton(
+        icon: SvgPicture.asset("assets/icons/back.svg"),
+        onPressed: () {},
+      ),
+      actions: <Widget>[
+        IconButton(
+          icon: SvgPicture.asset(
+            "assets/icons/search.svg",
+            color: kTextColor,
+          ),
+          onPressed: () {},
+        ),
+        IconButton(
+          icon: SvgPicture.asset(
+            "assets/icons/cart.svg",
+            color: kTextColor,
+          ),
+          onPressed: () {},
+        ),
+        SizedBox(
+          width: kDefaultPaddin / 2,
+        )
+      ],
+    );
   }
 }
