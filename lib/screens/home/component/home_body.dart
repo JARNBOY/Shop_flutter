@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping_app/constants.dart';
 import 'package:flutter_shopping_app/models/Product.dart';
+import 'package:flutter_shopping_app/screens/details/detail_screen.dart';
 
 import 'categorie.dart';
 import 'item_card.dart';
@@ -34,6 +35,9 @@ class HomeBody extends StatelessWidget {
                   mainAxisSpacing: kDefaultPaddin),
               itemBuilder: (context, index) => ItemCart(
                     product: products[index],
+                    press: () => Navigator.pushNamed(
+                        context, DetailScreen.routeName,
+                        arguments: products[index]),
                   )),
         ))
       ],
