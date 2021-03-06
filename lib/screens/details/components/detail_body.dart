@@ -4,6 +4,7 @@ import 'package:flutter_shopping_app/models/Product.dart';
 import 'package:flutter_shopping_app/screens/details/components/description.dart';
 import 'package:flutter_shopping_app/screens/details/components/product_title_with_image.dart';
 
+import 'cart_counter.dart';
 import 'color_and_size.dart';
 
 class DetailBody extends StatelessWidget {
@@ -36,7 +37,8 @@ class DetailBody extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       ColorAndSize(product: product),
-                      Description(product: product)
+                      Description(product: product),
+                      CartCounter()
                     ],
                   ),
                 ),
