@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping_app/constants.dart';
 import 'package:flutter_shopping_app/models/Product.dart';
+import 'package:flutter_shopping_app/screens/details/components/description.dart';
 import 'package:flutter_shopping_app/screens/details/components/product_title_with_image.dart';
 
 import 'color_and_size.dart';
@@ -35,13 +36,7 @@ class DetailBody extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       ColorAndSize(product: product),
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: kDefaultPaddin),
-                        child: Text(
-                          product.description,
-                          style: TextStyle(height: 1.5),
-                        ),
-                      )
+                      Description(product: product)
                     ],
                   ),
                 ),
