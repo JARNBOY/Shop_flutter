@@ -15,7 +15,17 @@ class DetailBody extends StatelessWidget {
           SizedBox(
             height: size.height,
             child: Stack(
-              children: <Widget>[],
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(top: size.height * 0.3),
+                  height: 500,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(24),
+                          topRight: Radius.circular(24))),
+                )
+              ],
             ),
           )
         ],
