@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping_app/constants.dart';
+import 'package:flutter_shopping_app/models/Product.dart';
+
+import 'categorie.dart';
 
 class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin),
@@ -16,34 +20,56 @@ class HomeBody extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        Categories()
+        Categories(),
+        Expanded(
+            child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+          child: GridView.builder(
+              itemCount: products.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 0.75),
+              itemBuilder: (context, index) => ItemCart()),
+        ))
       ],
     );
   }
 }
 
-class Categories extends StatefulWidget {
-  @override
-  _CategoriesState createState() => _CategoriesState();
-}
+class ItemCart extends StatelessWidget {
+  final Product product;
+  final Function press;
+  const ItemCart({
+    Key key,
+    this.product,
+    this.press,
+  }) : super(key: key);
 
-class _CategoriesState extends State<Categories> {
-  List<String> categories = ["Hand Bag", "Jewelly", "Footwear", "Dresses"];
-  //By default first Item
-  int selectedindex = 0;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 25,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (context, index) => buildCategory(index)),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.all(kDefaultPaddin),
+          height: 180,
+          width: 160,
+          decoration: BoxDecoration(
+              color: products[0].color,
+              borderRadius: BorderRadius.circular(16)),
+          child: Image.asset(products[0].image),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
+          child: Text(
+            products[0].title,
+            style: TextStyle(color: kTextLightColor),
+          ),
+        ),
+        Text(
+          "\$234",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        )
+      ],
     );
   }
-
-  Widget buildCategory(int index) => Padding(
-        padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-        child: Text(categories[index]),
-      );
 }
