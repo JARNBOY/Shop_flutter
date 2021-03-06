@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shopping_app/constants.dart';
 import 'package:flutter_shopping_app/models/Product.dart';
 import 'package:flutter_shopping_app/screens/details/components/product_title_with_image.dart';
+
+import 'color_and_size.dart';
 
 class DetailBody extends StatelessWidget {
   final Product product;
@@ -19,13 +22,28 @@ class DetailBody extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(top: size.height * 0.3),
-                  height: 500,
+                  padding: EdgeInsets.only(
+                      top: size.height * 0.12,
+                      left: kDefaultPaddin,
+                      right: kDefaultPaddin),
+                  // height: 500,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(24),
                           topRight: Radius.circular(24))),
-                  child: Column(),
+                  child: Column(
+                    children: <Widget>[
+                      ColorAndSize(product: product),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: kDefaultPaddin),
+                        child: Text(
+                          product.description,
+                          style: TextStyle(height: 1.5),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 ProductTitleWithImage(product: product),
               ],
