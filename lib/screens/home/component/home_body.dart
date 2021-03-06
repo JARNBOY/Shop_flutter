@@ -37,7 +37,8 @@ class HomeBody extends StatelessWidget {
                     product: products[index],
                     press: () => Navigator.pushNamed(
                         context, DetailScreen.routeName,
-                        arguments: products[index]),
+                        arguments:
+                            ProductDetailArguments(product: products[index])),
                   )),
         ))
       ],

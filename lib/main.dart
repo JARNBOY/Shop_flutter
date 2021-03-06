@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping_app/constants.dart';
+import 'package:flutter_shopping_app/routes.dart';
 
 import 'screens/home/home_screen.dart';
 
@@ -18,7 +19,9 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      // home: HomeScreen(),
+      initialRoute: HomeScreen.routeName,
+      routes: routes,
     );
   }
 }

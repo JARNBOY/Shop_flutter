@@ -14,32 +14,36 @@ class ItemCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(
-          child: Container(
-            padding: EdgeInsets.all(kDefaultPaddin),
-            //size fixed use only check in demo view but we will use of size in grid to customixe
-            // height: 180,
-            // width: 160,
-            decoration: BoxDecoration(
-                color: product.color, borderRadius: BorderRadius.circular(16)),
-            child: Image.asset(product.image),
+    return GestureDetector(
+      onTap: press,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(kDefaultPaddin),
+              //size fixed use only check in demo view but we will use of size in grid to customixe
+              // height: 180,
+              // width: 160,
+              decoration: BoxDecoration(
+                  color: product.color,
+                  borderRadius: BorderRadius.circular(16)),
+              child: Image.asset(product.image),
+            ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
-          child: Text(
-            product.title,
-            style: TextStyle(color: kTextLightColor),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
+            child: Text(
+              product.title,
+              style: TextStyle(color: kTextLightColor),
+            ),
           ),
-        ),
-        Text(
-          "\$${product.price}",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        )
-      ],
+          Text(
+            "\$${product.price}",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
     );
   }
 }

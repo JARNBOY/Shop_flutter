@@ -5,14 +5,19 @@ import 'package:flutter_shopping_app/screens/details/components/detail_body.dart
 class DetailScreen extends StatelessWidget {
   static String routeName = "/detail";
 
-  // final Product product;
-  // const DetailScreen({Key key, this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final Product product = ModalRoute.of(context).settings.arguments;
-    print("DetailScreen 0n -> data product is = ${product.title}");
+    final ProductDetailArguments arguments =
+        ModalRoute.of(context).settings.arguments;
+    print("arguments = prduct.title = ${arguments.product.title}");
     return Scaffold(
       body: DetailBody(),
     );
   }
+}
+
+class ProductDetailArguments {
+  final Product product;
+
+  ProductDetailArguments({@required this.product});
 }
