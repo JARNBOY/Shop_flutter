@@ -27,7 +27,10 @@ class HomeBody extends StatelessWidget {
           child: GridView.builder(
               itemCount: products.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.75),
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.75,
+                  crossAxisSpacing: kDefaultPaddin,
+                  mainAxisSpacing: kDefaultPaddin),
               itemBuilder: (context, index) => ItemCart()),
         ))
       ],
@@ -51,8 +54,9 @@ class ItemCart extends StatelessWidget {
       children: <Widget>[
         Container(
           padding: EdgeInsets.all(kDefaultPaddin),
-          height: 180,
-          width: 160,
+          //size fixed use only check in demo view but we will use of size in grid to customixe
+          // height: 180,
+          // width: 160,
           decoration: BoxDecoration(
               color: products[0].color,
               borderRadius: BorderRadius.circular(16)),
